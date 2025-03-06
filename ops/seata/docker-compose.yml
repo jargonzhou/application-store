@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  seata-mysql:
+    image: mysql:8.0.36
+    container_name: seata-mysql
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./conf:/etc/mysql
+      - ./init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "-u", "root", "--password=nacos", "--silent", "ping", "-h", "127.0.0.1"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+      start_period: 0s
+    networks:
+      - devops-network
+
+  seata-server:
+    image: seataio/seata-server:1.8.0.2
+    container_name: seata-server
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "7091:7091"
+      - "8091:8091"
+    volumes:
+      - ./conf/seata/application.yml:/seata-server/resources/application.yml
+    networks:
+      - devops-network
+    depends_on:
+      - seata-mysql
+
+networks:
+  devops-network:
+    external: true
