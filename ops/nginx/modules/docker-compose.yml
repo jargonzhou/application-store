@@ -1,0 +1,10 @@
+version: "3.3"
+services:
+  web:
+    build:
+      context: ./my-nginx/
+      args:
+        ENABLED_MODULES: vts
+    image: my-nginx-with-vts:v1
+    ports:
+      - "80:8080"
