@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  nacos-mysql:
+    image: mysql:8.0.36
+    container_name: nacos-mysql
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./conf:/etc/mysql
+      - ./init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "-u", "root", "--password=nacos", "--silent", "ping", "-h", "127.0.0.1"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+      start_period: 0s
+    networks:
+      - devops-network
+
+  nacos:
+    image: nacos/nacos-server:v2.5.0
+    container_name: nacos
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+    volumes:
+      - ./conf/application.properties:/home/nacos/conf/application.properties
+    networks:
+      - devops-network
+    depends_on:
+      - nacos-mysql
+
+networks:
+  devops-network:
+    external: true
