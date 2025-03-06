@@ -3,7 +3,7 @@ version: '3.8'
 # https://www.keycloak.org/server/containers
 services:
   keycloak:
-    image: quay.io/keycloak/keycloak:23.0.5
+    image: quay.io/keycloak/keycloak:26.1.2
     container_name: keycloak
     env_file:
       - .env
@@ -11,7 +11,7 @@ services:
     # development mode
     command: start-dev
     ports:
-      - 18080:8080
+      - 19001:8080
     volumes:
       - ./conf/keycloak.conf:/opt/keycloak/conf/keycloak.conf
     networks:
@@ -29,7 +29,7 @@ services:
       - ./data/mysql:/var/lib/mysql
       - ./conf/mysql:/etc/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
+      test: ["CMD", "mysqladmin", "-u", "root", "--password=change_me", "--silent", "ping", "-h", "127.0.0.1"]
       interval: 5s
       timeout: 3s
       retries: 3

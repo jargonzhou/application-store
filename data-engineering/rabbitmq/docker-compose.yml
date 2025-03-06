@@ -10,15 +10,18 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+      - "15692:15692" # https://www.rabbitmq.com/docs/prometheus
     volumes:
       - ./data:/var/lib/rabbitmq/mnesia
       - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
-    # healthcheck:
-    #   test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
-    #   interval: 5s
-    #   timeout: 3s
-    #   retries: 3
-    #   start_period: 0s
+      - ./enabled_plugins:/etc/rabbitmq/enabled_plugins
+    # https://github.com/docker-library/rabbitmq/pull/174#issuecomment-452002696
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "node_health_check"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 0s
     networks:
       - devops-network
 

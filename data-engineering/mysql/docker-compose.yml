@@ -13,7 +13,7 @@ services:
       - ./data:/var/lib/mysql
       - ./conf:/etc/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
+      test: ["CMD", "mysqladmin", "-u", "root", "--password=devops+mysql", "--silent", "ping", "-h", "127.0.0.1"]
       interval: 5s
       timeout: 3s
       retries: 3

@@ -52,6 +52,8 @@ Environments:
 | [Vector](./data-engineering/vector/README.md)                                          | Nginx log to ClickHouse               |
 | [ZooKeeper](./data-engineering/zookeeper/README.md)                                    | -                                     |
 
+- [Data Engineering Applications](./data-engineering/_applications/README.md)
+
 ## Ops
 
 | Application                                     | Examples                        |
@@ -69,9 +71,12 @@ Environments:
 | [Istio](./ops/istio/README.md)                  | bookinfo                        |
 | [Jaeger](./ops/jaeger/README.md)                | Python                          |
 | [Jenkins](./ops/jenkins/README.md)              | -                               |
+| [Nacos](./ops/nacos/README.md)                  | -                               |
+| [Nginx](./ops/nginx/README.md)                  | -                               |
 | [OpenResty](./ops/openresty/README.md)          | `lua-resty-mysql`               |
 | [Portainer](./ops/portainer/README.md)          | -                               |
 | [Prometheus](./ops/prometheus/README.md)        | Exporter, AlertMaanger, Grafana |
+| [Apache Seata](./ops/seata/README.md)           | -                               |
 | [Traefik](./ops/traefik/README.md)              | Docker provider                 |
 | [xxl-job](./ops/xxljob/README.md)               | Java                            |
 

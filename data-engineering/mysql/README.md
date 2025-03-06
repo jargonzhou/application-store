@@ -1,6 +1,5 @@
 # MySQL
-
-- Docker: https://hub.docker.com/_/mysql
+* https://hub.docker.com/_/mysql
 
 Initialize directory and files:
 

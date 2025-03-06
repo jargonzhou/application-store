@@ -1,0 +1,4 @@
+% [rabbitmq_federation_management,rabbitmq_management,rabbitmq_mqtt,rabbitmq_stomp].
+% rabbitmq_prometheus: https://www.rabbitmq.com/docs/prometheus
+% rabbitmq_tracing: https://www.rabbitmq.com/docs/firehose
+[rabbitmq_management, rabbitmq_prometheus, rabbitmq_tracing].
