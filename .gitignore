@@ -183,6 +183,9 @@ ops/nacos/data
 # openresty
 ops/openresty/modules/lua-resty-mysql-0.27
 
+# registry
+ops/registry/registry
+
 # seata
 ops/seata/data
 ops/seata/conf/seata/resources

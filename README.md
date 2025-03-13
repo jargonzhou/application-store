@@ -76,6 +76,7 @@ Environments:
 | [OpenResty](./ops/openresty/README.md)          | `lua-resty-mysql`               |
 | [Portainer](./ops/portainer/README.md)          | -                               |
 | [Prometheus](./ops/prometheus/README.md)        | Exporter, AlertMaanger, Grafana |
+| [registry](./ops/registry/README.md)            | -                               |
 | [Apache Seata](./ops/seata/README.md)           | -                               |
 | [Traefik](./ops/traefik/README.md)              | Docker provider                 |
 | [xxl-job](./ops/xxljob/README.md)               | Java                            |
