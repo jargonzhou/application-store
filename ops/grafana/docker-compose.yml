@@ -1,0 +1,42 @@
+version: "3.8"
+services:  
+  grafana:
+    image: grafana/grafana:11.5.2
+    container_name: grafana
+    restart: unless-stopped
+    ports: # DEPLOY_ENV
+     - 13000:3000
+    volumes:
+      - ./grafana-data:/var/lib/grafana
+    networks:
+      - apm-network
+    depends_on:
+      - loki
+  
+  loki:
+    image: grafana/loki:2.9.13
+    container_name: loki
+    restart: unless-stopped
+    ports: # DEPLOY_ENV
+     - 13100:3100
+    networks:
+      - apm-network
+    depends_on:
+      - fluent-bit
+  
+  fluent-bit:
+    image: grafana/fluent-bit-plugin-loki:2.9.13
+    container_name: fluent-bit
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports: # DEPLOY_ENV
+     - 24224:24224
+    # TODO: config
+    # https://grafana.com/docs/loki/latest/send-data/fluentbit/
+    networks:
+      - apm-network
+
+networks:
+  apm-network:
+    external: true

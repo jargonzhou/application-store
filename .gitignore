@@ -164,6 +164,9 @@ ops/flowable/data
 # freeswitch
 ops/freeswitch/freeswitch
 
+# grafana
+ops/grafana/grafana-data
+
 # harbor
 ops/harbor/harbor-offline-installer-v2.10.1.tgz
 ops/harbor/harbor/*

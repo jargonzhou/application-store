@@ -13,6 +13,9 @@ Environments:
   - Docker Engine v24.0.5
   - Kubernetes v1.27.2
 
+References:
+- [Docker Compose Specification](https://github.com/compose-spec/compose-spec)
+
 ## Benchmark
 
 | Application                                | Examples        |
@@ -66,6 +69,7 @@ Environments:
 | [Envoy](./ops/envoy/README.md)                  | MongoDB, httpbin, JWT Auth      |
 | [Flowable REST](./ops/flowable/README.md)       | -                               |
 | [FreeSWITCH](./ops/freeswitch/README.md)        | TODO: RIP, Conference           |
+| [Grafana](./ops/grafana/README.md)              | Loki, Fluent Bit                |
 | [HAProxy](./ops/haproxy/README.md)              | HTTP, TCP, stats                |
 | [Harbor](./ops/harbor/README.md)                | None                            |
 | [Istio](./ops/istio/README.md)                  | bookinfo                        |
