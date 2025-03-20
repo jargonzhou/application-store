@@ -1,25 +1,36 @@
 version: "3.8"
 services:
+  # https://skywalking.apache.org/docs/main/latest/readme/
   skywalking-oap-server:
-    image: apache/skywalking-oap-server:9.0.0
+    image: apache/skywalking-oap-server:10.1.0
     container_name: skywalking-oap-server
     restart: always
-    volumes:
-      - ./mysql-connector-java-5.1.49.jar:/skywalking/oap-libs/mysql-connector-java-5.1.49.jar
+    env_file:
+      - .env
     ports: # DEPLOY_ENV
-      - 11800:11800
-      - 12800:12800
+      - 11800:11800 # gRPC
+      - 12800:12800 # HTTP
     networks:
       - apm-network 
-    environment: # DEPLOY_ENV
-      - "JAVA_OPTS=-Xms256m -Xms256m"
-      - "SW_STORAGE=mysql"
-      - "SW_JDBC_URL=jdbc:mysql://localhost:3306/skywalking?rewriteBatchedStatements=true&allowMultiQueries=true"
-      - "SW_DATA_SOURCE_USER=root"
-      - "SW_DATA_SOURCE_PASSWORD=devops+mysql"
+    # volumes: # MySQL
+      # - ./mysql-connector-java-5.1.49.jar:/skywalking/oap-libs/mysql-connector-java-5.1.49.jar
+    depends_on:
+      - banyandb
+
+  # https://skywalking.apache.org/docs/skywalking-banyandb/latest/readme/
+  banyandb:
+    image: apache/skywalking-banyandb:0.7.1
+    container_name: banyandb
+    command: ["standalone"]
+    restart: always
+    ports: # DEPLOY_ENV
+      - 17912:17912 # gRPC
+      - 17913:17913 # HTTP
+    networks:
+      - apm-network   
 
   skywalking-ui:
-    image: apache/skywalking-ui:9.0.0
+    image: apache/skywalking-ui:10.1.0
     container_name: skywalking-ui
     restart: always
     ports: # DEPLOY_ENV
@@ -31,6 +42,8 @@ services:
       - "SW_OAP_ADDRESS=http://skywalking-oap-server:12800"
     depends_on:
       - skywalking-oap-server
+
+
 
 networks:
   apm-network:
