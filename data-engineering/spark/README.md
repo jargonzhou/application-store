@@ -12,7 +12,7 @@ docker-compose up --scale spark-worker=2 -d
 docker compose restart
 ```
 
-Access Spark Master at `http://localhost:8080/`.
+Access Spark Master at `http://localhost:18080/`.
 
 
 ```shell
@@ -45,4 +45,12 @@ scala>
 $ bin/spark-sql 
 ...
 spark-sql (default)> 
+```
+
+## Spark Connect
+
+```shell
+# example: in master
+/opt/bitnami/spark$ sbin/start-connect-server.sh --packages org.apache.spark:spark-connect_2.12:3.5.5
+starting org.apache.spark.sql.connect.service.SparkConnectServer, logging to /opt/bitnami/spark/logs/spark--org.apache.spark.sql.connect.service.SparkConnectServer-1-724dbdc1d558.out
 ```

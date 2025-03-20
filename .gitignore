@@ -123,6 +123,9 @@ data-engineering/redis/redis
 # samza
 data-engineering/samza/samza-hello-samza
 
+# spark
+data-engineering/spark/mysql-connector-j-8.0.32.jar
+
 # sqlite
 data-engineering/sqlite/data/*
 !data-engineering/sqlite/data/.gitkeep

@@ -10,13 +10,15 @@ services:
     env_file:
       - .env.master
     ports:
-      - 7077:7077
-      - 8080:8080
-      - 4040:4040
-      - 6066:6066
-    # volumes:
+      - 7077:7077 # for master
+      - 18080:8080 # web UI for master
+      - 14040:4040 # application web UI
+      - 16066:6066 # master REST API
+      - 15002:15002 # Spark Connect Server
+    volumes:
     #   - ./spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
     #   - ./data:/bitnami/spark
+      - ./mysql-connector-j-8.0.32.jar:/opt/bitnami/spark/jars/mysql-connector-j-8.0.32.jar
     networks:
       - devops-network
 
@@ -26,11 +28,12 @@ services:
     restart: "always"
     env_file:
       - .env.worker
-    # volumes:
+    volumes:
     #   - ./spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
     #   - ./data:/bitnami/spark
+      - ./mysql-connector-j-8.0.32.jar:/opt/bitnami/spark/jars/mysql-connector-j-8.0.32.jar
     ports:
-      - 8081-8082:8081
+      - 18081-18082:8081 # web UI for worker
     networks:
       - devops-network
 
