@@ -9,6 +9,10 @@ services:
       # https://prometheus.io/docs/prometheus/latest/command-line/prometheus/
       - --config.file=/etc/prometheus/prometheus.yml
       - --web.config.file=/etc/prometheus/prometheus-web.yml
+      # 开启远程写入
+      - --web.enable-remote-write-receiver
+      # 开启feature: https://prometheus.io/docs/prometheus/latest/feature_flags/
+      - --enable-feature=native-histograms
       - --storage.tsdb.retention.size=5GB
       - --storage.tsdb.retention.time=15d
     volumes:
@@ -36,18 +40,18 @@ services:
     depends_on:
       - prometheus
 
-  grafana:
-    image: grafana/grafana-oss
-    container_name: grafana
-    restart: unless-stopped
-    ports: # DEPLOY_ENV
-     - 13000:3000
-    volumes:
-      - ./grafana-data:/var/lib/grafana
-    networks:
-      - apm-network
-    depends_on:
-      - prometheus
+  # grafana:
+  #   image: grafana/grafana-oss
+  #   container_name: grafana
+  #   restart: unless-stopped
+  #   ports: # DEPLOY_ENV
+  #    - 13000:3000
+  #   volumes:
+  #     - ./grafana-data:/var/lib/grafana
+  #   networks:
+  #     - apm-network
+  #   depends_on:
+  #     - prometheus
 
 networks:
   apm-network:

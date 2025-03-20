@@ -166,6 +166,7 @@ ops/freeswitch/freeswitch
 
 # grafana
 ops/grafana/grafana-data
+ops/grafana/tempo-data
 
 # harbor
 ops/harbor/harbor-offline-installer-v2.10.1.tgz
@@ -186,12 +187,21 @@ ops/nacos/data
 # openresty
 ops/openresty/modules/lua-resty-mysql-0.27
 
+# prometheus
+ops/prometheus/prometheus-data
+ops/prometheus/prometheus-alertmanager-data
+ops/prometheus/grafana-data
+
 # registry
 ops/registry/registry
 
 # seata
 ops/seata/data
 ops/seata/conf/seata/resources
+
+# skywalking
+ops/skywalking/agent/*.tgz
+ops/skywalking/agent/skywalking-agent/
 
 # xxl-job
 ops/xxljob/applogs

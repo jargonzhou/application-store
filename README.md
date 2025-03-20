@@ -69,7 +69,7 @@ References:
 | [Envoy](./ops/envoy/README.md)                  | MongoDB, httpbin, JWT Auth      |
 | [Flowable REST](./ops/flowable/README.md)       | -                               |
 | [FreeSWITCH](./ops/freeswitch/README.md)        | TODO: RIP, Conference           |
-| [Grafana](./ops/grafana/README.md)              | Loki, Fluent Bit                |
+| [Grafana](./ops/grafana/README.md)              | Loki, Fluent Bit, Tempo         |
 | [HAProxy](./ops/haproxy/README.md)              | HTTP, TCP, stats                |
 | [Harbor](./ops/harbor/README.md)                | None                            |
 | [Istio](./ops/istio/README.md)                  | bookinfo                        |
@@ -82,6 +82,7 @@ References:
 | [Prometheus](./ops/prometheus/README.md)        | Exporter, AlertMaanger, Grafana |
 | [registry](./ops/registry/README.md)            | -                               |
 | [Apache Seata](./ops/seata/README.md)           | -                               |
+| [Apache Skywalking](./ops/skywalking/README.md) | OAP Server, UI, BanyanDB.       |
 | [Traefik](./ops/traefik/README.md)              | Docker provider                 |
 | [xxl-job](./ops/xxljob/README.md)               | Java                            |
 
@@ -114,7 +115,7 @@ References:
   - MongoDB
   - ActiveMQ
   - Kafka
-- [Cloud Native Spring in Action](https://github.com/zhoujiagen/learning-cloudnative/tree/main/compute/java-reactive/spring/book-store) 
+- Cloud Native Spring in Action
   - PostgreSQL
 - [GraphQL in Action](https://github.com/zhoujiagen/learning-cloudnative/tree/main/networking/graphql/ex-azdev/ops)
   - PostgreSQL

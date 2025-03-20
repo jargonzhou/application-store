@@ -2,6 +2,7 @@
 * https://hub.docker.com/r/grafana/grafana
 * https://hub.docker.com/r/grafana/loki
 * https://hub.docker.com/r/grafana/fluent-bit-plugin-loki
+* https://hub.docker.com/r/grafana/tempo
 
 # Docker logging driver
 * [Docker logging Driver](https://docs.docker.com/engine/logging/configure/)

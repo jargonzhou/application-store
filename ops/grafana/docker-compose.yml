@@ -19,6 +19,8 @@ services:
     restart: unless-stopped
     ports: # DEPLOY_ENV
      - 13100:3100
+    volumes:
+      - ./loki.yaml:/etc/loki/config.yaml
     networks:
       - apm-network
     depends_on:
@@ -34,6 +36,38 @@ services:
      - 24224:24224
     # TODO: config
     # https://grafana.com/docs/loki/latest/send-data/fluentbit/
+    networks:
+      - apm-network
+
+  # examples: https://github.com/grafana/tempo/tree/main/example
+  tempo:
+    image: grafana/tempo
+    container_name: tempo
+    restart: unless-stopped
+    ports: # DEPLOY_ENV
+      # - "14268:14268"  # jaeger ingest
+      - "3200:3200"   # tempo
+      - "9095:9095" # tempo grpc
+      - "4317:4317"  # otlp grpc
+      - "4318:4318"  # otlp http
+      # - "9411:9411"   # zipkin
+    volumes:
+      - ./tempo-data:/var/tempo
+      - ./tempo.yaml:/etc/tempo.yaml
+    command: [ "-config.file=/etc/tempo.yaml" ]
+    networks:
+      - apm-network
+    depends_on:
+      - memcached
+
+  memcached:
+    image: memcached:1.6.29
+    container_name: memcached
+    ports:
+      - "11211:11211"
+    environment:
+      - MEMCACHED_MAX_MEMORY=64m  # Set the maximum memory usage
+      - MEMCACHED_THREADS=4       # Number of threads to use
     networks:
       - apm-network
 
