@@ -1,6 +1,7 @@
 version: "3.8"
 services:  
   # Usually on application machines.
+  # runtime options: https://github.com/google/cadvisor/blob/master/docs/runtime_options.md
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.2
     container_name: cadvisor

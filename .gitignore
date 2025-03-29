@@ -161,6 +161,12 @@ ops/coredns/etcd-data
 ops/coturn/corturn
 ops/coturn/mysql-data
 
+# elasticjob
+ops/elasticjob/ui.tar.gz
+ops/elasticjob/mysql-connector-j-8.0.32.jar
+ops/elasticjob/data
+ops/elasticjob/apache-shardingsphere-elasticjob-3.0.2-lite-ui-bin
+
 # flowable
 ops/flowable/data
 
@@ -201,6 +207,9 @@ ops/registry/registry
 # seata
 ops/seata/data
 ops/seata/conf/seata/resources
+
+# sentinel
+ops/sentinel/sentinel-dashboard-1.8.8.jar
 
 # skywalking
 ops/skywalking/agent/*.tgz

@@ -11,7 +11,7 @@ services:
       - 8161:8161 
     volumes:
       - ./server.properties:/etc/kafka/docker/server.properties
-      - ./data:/tmp/kraft-combined-logs
+      # - ./data:/tmp/kraft-combined-logs
     networks:
       - devops-network
 
