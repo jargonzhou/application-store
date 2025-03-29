@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  sentinel:
+    image: sentinel:1.8.8
+    container_name: sentinel
+    restart: unless-stopped
+    # https://sentinelguard.io/zh-cn/docs/dashboard.html
+    environment:
+      - PASSWORD=devops+sentinel
+    ports:
+      - 18080:8080
+    # volumes:
+    #   - ./data:/
+    # healthcheck:
+    #   test: ["CMD", "mysqladmin", "-u", "root", "--password=nacos", "--silent", "ping", "-h", "127.0.0.1"]
+    #   interval: 5s
+    #   timeout: 3s
+    #   retries: 3
+    #   start_period: 0s
+    networks:
+      - devops-network
+
+networks:
+  devops-network:
+    external: true
