@@ -1,0 +1,51 @@
+services:
+  zookeeper:
+    image: zookeeper
+    container_name: zookeeper
+    restart: "unless-stopped"
+    networks:
+      - devops-network
+    ports:
+      - 2181:2181
+
+  mysql:
+    image: mysql:8.0.36
+    container_name: mysql
+    restart: "always"
+    environment:
+      - MYSQL_ROOT_PASSWORD=change_me
+      - MYSQL_DATABASE=elasticjob
+      - MYSQL_USER=elasticjob
+      - MYSQL_PASSWORD=elasticjob
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+    #   - ./conf:/etc/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+      start_period: 0s
+    networks:
+      - devops-network
+
+  elasticjob-ui:
+    image: elasticjob-ui:3.0.2 
+    container_name: elasticjob-ui
+    volumes:
+      - ./conf/ui-application.properties:/apache-shardingsphere-elasticjob-3.0.2-lite-ui-bin/conf/application.properties
+      - ./mysql-connector-j-8.0.32.jar:/apache-shardingsphere-elasticjob-3.0.2-lite-ui-bin/ext-lib/mysql-connector-j-8.0.32.jar
+    networks:
+      - devops-network
+    ports:
+      - 18088:8088
+    depends_on:
+      - zookeeper
+      - mysql
+    entrypoint: ["tail", "-f", "/dev/null"]
+
+networks:
+  devops-network:
+    external: true
