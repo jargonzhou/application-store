@@ -53,7 +53,7 @@ References:
 | [Redis](./data-engineering/redis/README.md)                      | Single, Cluster                                     |
 | [SQLite](./data-engineering/sqlite/README.md)                    | sqlite-web                                          |
 | [Vector](./data-engineering/vector/README.md)                    | Nginx log to ClickHouse                             |
-| [ZooKeeper](./data-engineering/zookeeper/zookeeper.md)           | -                                                   |
+| [ZooKeeper](./data-engineering/zookeeper/zookeeper.md)           | Single, Cluster                                     |
 
 - [Data Engineering Applications](./data-engineering/_applications/README.md)
 
