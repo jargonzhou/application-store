@@ -8,6 +8,6 @@
 daemon.json:
 ```json
 {
-  "insecure-registries": ["192.168.3.178:5000"]
+  "insecure-registries": ["192.168.3.182:5000"]
 }
 ```
