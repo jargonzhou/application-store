@@ -133,3 +133,61 @@ No scheduled jobs.
 17.04.2024 03:41:11 : 906a468ac07a1a964b046fb631c955a8 : insert-into_default_catalog.default_database.sink (FINISHED)
 --------------------------------------------------------------
 ```
+
+### CDC
+* https://nightlies.apache.org/flink/flink-cdc-docs-release-3.3/docs/get-started/quickstart/mysql-to-doris/
+
+```shell
+# WSL Ubuntu
+# 1. Flink
+# conf/config.yaml
+# jobmanager.memory.process.size: 2600m
+# taskmanager.numberOfTaskSlots: 5
+# taskmanager.memory.process.size: 2728m
+# execution.checkpointing.interval: 3000
+# lib/mysql-connector-java-8.0.27.jar
+➜  flink-1.20.1 git:(main) ✗ bin/start-cluster.sh
+Starting cluster.
+Starting standalonesession daemon on host zhoujiagen.
+Starting taskexecutor daemon on host zhoujiagen.
+➜  flink-1.20.1 git:(main) ✗ export FLINK_HOME=/mnt/d/workspace/github/application-store/data-engineering/flink/cdc/flink-1.20.1
+
+# 2. flick-cdc
+# lib/flink-cdc-pipeline-connector-mysql-3.3.0.jar
+# lib/flink-cdc-pipeline-connector-doris-3.3.0.jar
+➜  flink-cdc-3.3.0 git:(main) ✗ bin/flink-cdc.sh ../mysql-to-doris.yaml
+Pipeline has been submitted to cluster.
+Job ID: 469aeb41b46381a3d8979513c1111108
+Job Description: Sync MySQL Database to Doris
+```
+
+Simulate Event: DataChangeEvent, SchemaChangeEvent
+
+```sql
+-- MySQL
+INSERT INTO app_db.orders (id, price) VALUES (3, 100.00);
+ALTER TABLE app_db.orders ADD amount varchar(100) NULL;
+UPDATE app_db.orders SET price=100.00, amount=100.00 WHERE id=1;
+DELETE FROM app_db.orders WHERE id=2;
+
+mysql> SELECT * FROM orders;
++----+--------+--------+
+| id | price  | amount |
++----+--------+--------+
+|  1 | 100.00 | 100.00 |
+|  3 | 100.00 | NULL   |
++----+--------+--------+
+2 rows in set (0.00 sec)
+
+-- Doris
+root@15d16fec4b35:~# mysql -uroot -h127.0.0.1 -P9030
+MySQL [(none)]> use app_db;
+MySQL [app_db]> select * from orders;
++------+--------+--------+
+| id   | price  | amount |
++------+--------+--------+
+|    1 | 100.00 | 100.00 |
+|    3 | 100.00 | NULL   |
++------+--------+--------+
+2 rows in set (0.017 sec)
+```

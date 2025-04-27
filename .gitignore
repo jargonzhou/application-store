@@ -53,6 +53,11 @@ data-engineering/etcd/cluster/etcd-data-*
 # flink
 data-engineering/flink/archive
 data-engineering/flink/log
+## flink-cdc
+data-engineering/flink/cdc/flink-1.20.1/
+data-engineering/flink/cdc/flink-cdc-3.3.0/
+data-engineering/flink/cdc/flink-1.20.1-bin-scala_2.12.tgz
+data-engineering/flink/cdc/flink-cdc-3.3.0-bin.tar.gz
 
 # hadoop
 data-engineering/hadoop/clients/python/pydoop/pydoop/

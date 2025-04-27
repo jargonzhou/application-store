@@ -30,13 +30,14 @@ References:
 | [Apache ActiveMQ Artemis](./data-engineering/activemq/README.md) | `stomp.py`                                          |
 | [Apache Airflow](./data-engineering/airflow/airflow.md)          | TODO                                                |
 | [Apache Cassandra](./data-engineering/cassandra/README.md)       | CQL                                                 |
-| [Ceph](./data-engineering/ceph/README.md)                        | TODO                                                |
-| [Apache Flink](./data-engineering/flink/flink.md)                | Python                                              |
+| [Apache Doris](./data-engineering/doris/doris.md)                | `yagagagaga/doris-standalone` local dev setup       |
+| [Apache Flink](./data-engineering/flink/flink.md)                | Python, CDC                                         |
 | [Apache Hadoop](./data-engineering/hadoop/README.md)             | pydoop                                              |
 | [Apache Kafka](./data-engineering/kafka/kafka.md)                | Python, Scala                                       |
 | [Apache Samza](./data-engineering/samza/README.md)               | Java(as library)                                    |
 | [Apache Spark](./data-engineering/spark/spark.md)                | `pyspark`, `spark-shell`, `spark-sql`               |
 | [Apache TinkerPop](./data-engineering/tinkerpop/README.md)       | HTTP, `gremlin-console`, Alchemy.js                 |
+| [Ceph](./data-engineering/ceph/README.md)                        | TODO                                                |
 | [ClickHouse](./data-engineering/clickhouse/README.md)            | `clickhouse-client`, Bytebase, Python               |
 | [Elasticsearch](./data-engineering/elastic/elastic.md)           | Elasticsearch, FileBeat, Kibana. Java app Container |
 | [etcd](./data-engineering/etcd/etcd.md)                          | `etcdctl`, Python.                                  |

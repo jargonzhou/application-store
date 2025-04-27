@@ -1,0 +1,62 @@
+version: "3.8"
+
+# health check!!!
+
+services:
+  # fe:
+  #   image: apache/doris:fe-2.1.9
+  #   privileged: true
+  #   hostname: fe
+  #   environment:
+  #   #  - FE_SERVERS=fe1:127.0.0.1:9010
+  #   #  - FE_ID=1
+  #    - FE_SERVERS=fe1:192.168.0.101:9010
+  #    - FE_ID=1
+  #   network_mode: host
+  #   # networks:
+  #   #   - devops-network
+  #   # ports: # DEPLOY_ENV
+  #   #   - 9030:9030
+  #   #   - 9010:9010
+  #   #   - 9020:9020
+  #   #   - 8030:8030
+  #   volumes:
+  #     - ./conf/fe.conf:/opt/apache-doris/fe/conf/fe.conf
+
+    
+  # be:
+  #   image: apache/doris:be-2.1.9
+  #   privileged: true
+  #   hostname: be
+  #   environment:
+  #   #  - FE_SERVERS=fe1:127.0.0.1:9010
+  #   #  - BE_ADDR=127.0.0.1:9050
+  #    - FE_SERVERS=fe1:192.168.0.101:9010
+  #    - BE_ADDR=192.168.0.101:9050
+  #   network_mode: host
+  #   # networks:
+  #   #   - devops-network
+  #   # ports: # DEPLOY_ENV
+  #   #   - 9050:9050
+  #   #   - 9060:9060
+  #   #   - 8060:8060
+  #   #   - 8040:8040
+  #   volumes:
+  #     - ./conf/be.conf:/opt/apache-doris/be/conf/be.conf
+  #   depends_on:
+  #     - fe
+
+  doris:
+    image: yagagagaga/doris-standalone:2.1.9
+    container_name: doris
+    privileged: true
+    networks:
+      - devops-network
+    ports: # DEPLOY_ENV
+      - 9030:9030
+      - 8040:8040
+      - 8030:8030
+
+networks:
+  devops-network:
+    external: true

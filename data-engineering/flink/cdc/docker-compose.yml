@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0.36
+    container_name: mysql
+    restart: "always"
+    environment:
+      - MYSQL_ROOT_PASSWORD=change_me
+    volumes:
+      - ./mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 3306:3306
+    networks:
+      - devops-network
+
+  doris:
+    image: yagagagaga/doris-standalone:2.1.9
+    container_name: doris
+    privileged: true
+    networks:
+      - devops-network
+    ports: # DEPLOY_ENV
+      - 9030:9030
+      - 8040:8040
+      - 8030:8030
+
+networks:
+  devops-network:
+    external: true
