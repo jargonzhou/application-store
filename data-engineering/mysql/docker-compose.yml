@@ -12,6 +12,8 @@ services:
     volumes:
       - ./data:/var/lib/mysql
       - ./conf:/etc/mysql
+    # 2025-07-19: NOT WORKING in my.cnf options
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     healthcheck:
       test: ["CMD", "mysqladmin", "-u", "root", "--password=devops+mysql", "--silent", "ping", "-h", "127.0.0.1"]
       interval: 5s
@@ -32,6 +34,7 @@ services:
     volumes:
       - ./repl/data:/var/lib/mysql
       - ./repl/conf:/etc/mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     networks:
       - devops-network
     healthcheck:

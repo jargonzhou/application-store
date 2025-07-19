@@ -150,6 +150,9 @@ data-engineering/vector/logs
 # Ops
 ###########################################################
 # archery
+ops/archery/mysql/data
+ops/archery/archery/logs
+ops/archery/archery/sql
 
 # artipie
 ops/artipie

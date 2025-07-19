@@ -14,8 +14,10 @@ COPY . /conductor
 WORKDIR /conductor
 
 # Build the server on run
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> DEPLOY_ENV
 # build locally due to network errors
 # RUN ./gradlew build -x test
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 WORKDIR /conductor/server/build/libs
 RUN ls -ltr
 

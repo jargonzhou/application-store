@@ -21,7 +21,14 @@ python3 manage.py dbshell<src/init_sql/mysql_slow_query_review.sql
 
 #创建管理用户
 python3 manage.py createsuperuser
+用户名: archery
+电子邮件地址: archery@example.com
+Password: devops+archery # DEPLOY_ENV
+Password (again): 
+Superuser created successfully.
 ```
+
+Access: `http://localhost:9123`.
 
 ## FIX
 

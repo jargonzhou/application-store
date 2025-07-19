@@ -23,12 +23,13 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - "./mysql/my.cnf:/etc/mysql/my.cnf"
-      - "./mysql/datadir:/var/lib/mysql"
+      - "./mysql/my.cnf:/etc/my.cnf"
+      - "./mysql/data:/var/lib/mysql"
     environment:
       MYSQL_DATABASE: archery
       # DEPLOY_ENV
       MYSQL_ROOT_PASSWORD: devops+mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     networks:
       - ops-network
     healthcheck:
@@ -49,7 +50,7 @@ services:
       - ops-network
 
   archery:
-    image: hhyo/archery:v1.10.0
+    image: hhyo/archery:v1.12.0
     container_name: archery
     restart: always
     depends_on:
@@ -67,10 +68,11 @@ services:
       - "./archery/sql/migrations:/opt/archery/sql/migrations"
       - "./archery/logs:/opt/archery/logs"
       - "./archery/keys:/opt/archery/keys"
+      - "./archery/sqlserver.sh:/opt/archery/sqlserver.sh" # SQL Server
       - "./.env:/opt/archery/.env"
       # custom code
-      - "./archery/custom/mongo.py:/opt/archery/sql/engines/mongo.py"
-      - "./archery/custom/archiver.py:/opt/archery/sql/archiver.py"
+      # - "./archery/custom/mongo.py:/opt/archery/sql/engines/mongo.py"
+      # - "./archery/custom/archiver.py:/opt/archery/sql/archiver.py"
     entrypoint: "bash /opt/archery/src/docker/startup.sh"
     env_file:
       - .env
