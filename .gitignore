@@ -198,6 +198,9 @@ ops/istio/istio-1.20.3/
 # jenkins
 ops/jenkins/data
 
+# liquibase
+ops/liquibase/changelog
+
 # nacos
 ops/nacos/data
 
