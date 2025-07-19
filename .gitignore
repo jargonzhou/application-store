@@ -135,6 +135,9 @@ data-engineering/spark/mysql-connector-j-8.0.32.jar
 data-engineering/sqlite/data/*
 !data-engineering/sqlite/data/.gitkeep
 
+# sqlserver
+data-engineering/sqlserver/data
+
 # tinkerpop
 data-engineering/tinkerpop/console-conf/conf/*
 !data-engineering/tinkerpop/console-conf/conf/remote.yaml

@@ -46,13 +46,14 @@ References:
 | [Jupyter Notebook](./data-engineering/jupyter/jupyter.md)        | `ipython-sql`                                       |
 | [MinIO](./data-engineering/minio/minio.md)                       | Python                                              |
 | [MongoDB](./data-engineering/mongodb/README.md)                  | NonCluster, Cluter, stats, `wt`                     |
-| [MySQL](./data-engineering/mysql/README.md)                      | 5.7, 8, Replication                                 |
+| [MySQL](./data-engineering/mysql/mysql.md)                       | 5.7, 8, Replication                                 |
 | [Neo4j](./data-engineering/neo4j/README.md)                      | JavaScript                                          |
 | [Apache Pinot](./data-engineering/pinot/README.md)               | Batch, Stream                                       |
 | [PostgreSQL](./data-engineering/postgresql/README.md)            | pgAdmin                                             |
 | [RabbitMQ](./data-engineering/rabbitmq/rabbitmq.md)              | Python                                              |
 | [Redis](./data-engineering/redis/README.md)                      | Single, Cluster                                     |
 | [SQLite](./data-engineering/sqlite/README.md)                    | sqlite-web                                          |
+| [SQL Server](./data-engineering/sqlserver/sqlserver.md)          |                                                     |
 | [Vector](./data-engineering/vector/README.md)                    | Nginx log to ClickHouse                             |
 | [ZooKeeper](./data-engineering/zookeeper/zookeeper.md)           | Single, Cluster                                     |
 

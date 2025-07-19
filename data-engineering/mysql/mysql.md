@@ -11,6 +11,9 @@ mkdir -p conf/{conf.d,mysql.conf.d}
 touch conf/conf.d/my.cnf
 ```
 
+## SQL
+* more: [mysql.sql](./mysql.sql)
+
 ## MySQL Shell
 
 ```shell
