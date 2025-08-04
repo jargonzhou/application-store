@@ -44,6 +44,7 @@ References:
 | [Hazelcast](./data-engineering/hazelcast/README.md)              | MySQL CDC in Java                                   |
 | [Apache Iceberg](./data-engineering/iceberg/README.md)           | Spark                                               |
 | [Jupyter Notebook](./data-engineering/jupyter/jupyter.md)        | `ipython-sql`                                       |
+| [Milvus](./data-engineering/milvus/milvus.md)                    | Milvus Lite                                         |
 | [MinIO](./data-engineering/minio/minio.md)                       | Python                                              |
 | [MongoDB](./data-engineering/mongodb/README.md)                  | NonCluster, Cluter, stats, `wt`                     |
 | [MySQL](./data-engineering/mysql/mysql.md)                       | 5.7, 8, Replication                                 |
