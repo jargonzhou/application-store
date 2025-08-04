@@ -78,6 +78,11 @@ data-engineering/kafka/data/*
 data-engineering/kafka/2.1.1/data
 data-engineering/kafka/2.1.1/zk-data
 
+# milvus
+data-engineering/milvus/milvus_demo.db
+data-engineering/milvus/.milvus_demo.db.lock
+data-engineering/milvus/volumes
+
 # minio
 data-engineering/minio/data/*
 !data-engineering/minio/data/.gitkeep
@@ -137,6 +142,9 @@ data-engineering/sqlite/data/*
 
 # sqlserver
 data-engineering/sqlserver/data
+
+# superset
+data-engineering/superset/app/app
 
 # tinkerpop
 data-engineering/tinkerpop/console-conf/conf/*

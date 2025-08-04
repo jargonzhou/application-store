@@ -1,4 +1,6 @@
-# Prometheus based Metrics and Alerts
+# Prometheus
+* https://prometheus.io/
+* https://grafana.com/
 
 ```shell
 ├── docker-compose.yml                      # prometheus, prometheus-alertmanager, grafana
