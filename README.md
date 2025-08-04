@@ -36,6 +36,7 @@ References:
 | [Apache Kafka](./data-engineering/kafka/kafka.md)                | Python, Scala                                       |
 | [Apache Samza](./data-engineering/samza/README.md)               | Java(as library)                                    |
 | [Apache Spark](./data-engineering/spark/spark.md)                | `pyspark`, `spark-shell`, `spark-sql`               |
+| [Apache Superset](./data-engineering/superset/superset.md)       | -                                                   |
 | [Apache TinkerPop](./data-engineering/tinkerpop/README.md)       | HTTP, `gremlin-console`, Alchemy.js                 |
 | [Ceph](./data-engineering/ceph/README.md)                        | TODO                                                |
 | [ClickHouse](./data-engineering/clickhouse/README.md)            | `clickhouse-client`, Bytebase, Python               |
