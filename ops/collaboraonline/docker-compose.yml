@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  collaboraonline:
+    image: collabora/code:25.04.4.2.1
+    container_name: collaboraonline
+    restart: always
+    privileged: true
+    env_file:
+      - .env
+    ports:
+      - "9980:9980"
+    networks:
+      - devops-network
+    # volumes:
+      # - ./coolwsd.xml:/etc/coolwsd/coolwsd.xml
+
+networks:
+  devops-network:
+    external: true

@@ -63,34 +63,35 @@ References:
 
 ## Ops
 
-| Application                                         | Examples                        |
-| :-------------------------------------------------- | :------------------------------ |
-| [Archery](./ops/archery/archery.md)                 | Fix bugs                        |
-| [Conductor](./ops/conductor/conductor.md)           | Python                          |
-| [CoreDNS](./ops/coredns/coredns.md)                 | `etcd` plugin, `dig`            |
-| [Coturn](./ops/coturn/coturn.md)                    | TODO: WebRTC                    |
-| [ElasticJob](./ops/elasticjob/elasticjob.md)        | -                               |
-| [Envoy](./ops/envoy/envoy.md)                       | MongoDB, httpbin, JWT Auth      |
-| [Flowable REST](./ops/flowable/flowable.md)         | -                               |
-| [FreeSWITCH](./ops/freeswitch/freeswitch.md)        | TODO: RIP, Conference           |
-| [Grafana](./ops/grafana/grafana.md)                 | Loki, Fluent Bit, Tempo         |
-| [HAProxy](./ops/haproxy/haproxy.md)                 | HTTP, TCP, stats                |
-| [Harbor](./ops/harbor/harbor.md)                    | None                            |
-| [Istio](./ops/istio/istio.md)                       | bookinfo                        |
-| [Jaeger](./ops/jaeger/jaeger.md)                    | Python                          |
-| [Jenkins](./ops/jenkins/jenkins.md)                 | -                               |
-| [Liquibase](./ops/liquibase/liquibase.md)           | Docker                          |
-| [Nacos](./ops/nacos/nacos.md)                       | -                               |
-| [Nginx](./ops/nginx/nginx.md)                       | -                               |
-| [OpenResty](./ops/openresty/openresty.md)           | `lua-resty-mysql`               |
-| [Portainer](./ops/portainer/portainer.md)           | -                               |
-| [Prometheus](./ops/prometheus/prometheus.md)        | Exporter, AlertMaanger, Grafana |
-| [registry](./ops/registry/registry.md)              | -                               |
-| [Apache Seata](./ops/seata/seata.md)                | -                               |
-| [Sentinel Dashboard](./ops/sentinel/sentinel.md)    | -                               |
-| [Apache Skywalking](./ops/skywalking/skywalking.md) | OAP Server, UI, BanyanDB.       |
-| [Traefik](./ops/traefik/traefik.md)                 | Docker provider                 |
-| [xxl-job](./ops/xxljob/xxljob.md)                   | Java                            |
+| Application                                                  | Examples                        |
+| :----------------------------------------------------------- | :------------------------------ |
+| [Archery](./ops/archery/archery.md)                          | Fix bugs                        |
+| [Collabora Online](./ops/collaboraonline/collaboraonline.md) | Python                          |
+| [Conductor](./ops/conductor/conductor.md)                    | Python                          |
+| [CoreDNS](./ops/coredns/coredns.md)                          | `etcd` plugin, `dig`            |
+| [Coturn](./ops/coturn/coturn.md)                             | TODO: WebRTC                    |
+| [ElasticJob](./ops/elasticjob/elasticjob.md)                 | -                               |
+| [Envoy](./ops/envoy/envoy.md)                                | MongoDB, httpbin, JWT Auth      |
+| [Flowable REST](./ops/flowable/flowable.md)                  | -                               |
+| [FreeSWITCH](./ops/freeswitch/freeswitch.md)                 | TODO: RIP, Conference           |
+| [Grafana](./ops/grafana/grafana.md)                          | Loki, Fluent Bit, Tempo         |
+| [HAProxy](./ops/haproxy/haproxy.md)                          | HTTP, TCP, stats                |
+| [Harbor](./ops/harbor/harbor.md)                             | None                            |
+| [Istio](./ops/istio/istio.md)                                | bookinfo                        |
+| [Jaeger](./ops/jaeger/jaeger.md)                             | Python                          |
+| [Jenkins](./ops/jenkins/jenkins.md)                          | -                               |
+| [Liquibase](./ops/liquibase/liquibase.md)                    | Docker                          |
+| [Nacos](./ops/nacos/nacos.md)                                | -                               |
+| [Nginx](./ops/nginx/nginx.md)                                | -                               |
+| [OpenResty](./ops/openresty/openresty.md)                    | `lua-resty-mysql`               |
+| [Portainer](./ops/portainer/portainer.md)                    | -                               |
+| [Prometheus](./ops/prometheus/prometheus.md)                 | Exporter, AlertMaanger, Grafana |
+| [registry](./ops/registry/registry.md)                       | -                               |
+| [Apache Seata](./ops/seata/seata.md)                         | -                               |
+| [Sentinel Dashboard](./ops/sentinel/sentinel.md)             | -                               |
+| [Apache Skywalking](./ops/skywalking/skywalking.md)          | OAP Server, UI, BanyanDB.       |
+| [Traefik](./ops/traefik/traefik.md)                          | Docker provider                 |
+| [xxl-job](./ops/xxljob/xxljob.md)                            | Java                            |
 
 ## Security
 
