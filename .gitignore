@@ -237,6 +237,9 @@ ops/sentinel/sentinel-dashboard-1.8.8.jar
 ops/skywalking/agent/*.tgz
 ops/skywalking/agent/skywalking-agent/
 
+# swagger-ui
+ops/swagger-ui/*.conf
+
 # xxl-job
 ops/xxljob/applogs
 ops/xxljob/data

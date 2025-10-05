@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  swagger-ui:
+    image: docker.swagger.io/swaggerapi/swagger-ui
+    container_name: swagger-ui
+    restart: "always"
+    env_file:
+      - .env
+    volumes:
+      - ./swagger-doc:/swagger-doc
+      # - ./default.conf:/etc/nginx/conf.d/default.conf
+      # - ./cors.conf:/etc/nginx/templates/cors.conf
+    ports:
+      - "18080:8080"
+    networks:
+      - devops-network
+
+
+networks:
+  devops-network:
+    external: true

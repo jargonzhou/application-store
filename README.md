@@ -90,6 +90,7 @@ References:
 | [Apache Seata](./ops/seata/seata.md)                         | -                               |
 | [Sentinel Dashboard](./ops/sentinel/sentinel.md)             | -                               |
 | [Apache Skywalking](./ops/skywalking/skywalking.md)          | OAP Server, UI, BanyanDB.       |
+| [Swagger UI](./ops/swagger-ui/swagger-ui.md)                 | -                               |
 | [Traefik](./ops/traefik/traefik.md)                          | Docker provider                 |
 | [xxl-job](./ops/xxljob/xxljob.md)                            | Java                            |
 
