@@ -104,6 +104,7 @@ References:
 ## Langauge Runtime
 
 - [Common Lisp](./language-runtime/common-lisp/README.md)
+- [Go](./language-runtime/gonb/gonb.md)
 
 ## Testing
 

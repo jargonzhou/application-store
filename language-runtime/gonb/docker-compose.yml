@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  gonb_jupyterlab:
+    image: janpfeifer/gonb_jupyterlab
+    container_name: gonb_jupyterlab
+    restart: "always"
+    networks:
+      - devops-network
+    ports:
+      - 18888:8888
+    volumes:
+      - ./:/notebooks/host
+      - ./autostart:/root/autostart:ro
+
+networks:
+  devops-network:
+    external: true
