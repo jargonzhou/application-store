@@ -140,7 +140,9 @@ data-engineering/redis/redis
 data-engineering/samza/samza-hello-samza
 
 # spark
+data-engineering/spark/bin
 data-engineering/spark/data
+data-engineering/spark/logs
 data-engineering/spark/jars
 data-engineering/spark/nlp
 

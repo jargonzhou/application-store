@@ -1,39 +1,67 @@
-# https://github.com/bitnami/containers/tree/main/bitnami/spark
-
 version: '3.8'
 
+# https://github.com/apache/spark-docker/tree/master/3.5.8
 services:
-  spark:
-    image: bitnami/spark:3.5
-    container_name: spark
+  spark-master:
+    image: spark:3.5.8-nlp
+    container_name: spark-master
     restart: "always"
     env_file:
       - .env.master
+    command: >
+      /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
     ports:
-      - 7077:7077 # for master
-      - 18080:8080 # web UI for master
-      - 14040:4040 # application web UI
-      - 16066:6066 # master REST API
-      - 15002:15002 # Spark Connect Server
+      - 7077:7077 # SPARK_MASTER_PORT
+      - 18080:8080 # spark.master.ui.port
+      - 14040:4040 # spark.ui.port
+      - 16066:6066 # spark.master.rest.port
+      - 15002:15002 # spark.connect.grpc.binding.port
     volumes:
-    #   - ./spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
-    #   - ./data:/bitnami/spark
-      - ./mysql-connector-j-8.0.32.jar:/opt/bitnami/spark/jars/mysql-connector-j-8.0.32.jar
+      - ./conf/:/opt/spark/conf
+      - ./data:/opt/spark/data
+      - ./logs:/opt/spark/logs
+      - ./jars/spark-connect_2.12-3.5.8.jar:/opt/spark/jars/spark-connect_2.12-3.5.8.jar
+      - ./jars/spark-nlp-assembly-6.4.0.jar:/opt/spark/jars/spark-nlp-assembly-6.4.0.jar
+      - ./nlp/models/:/opt/spark/nlp/models
     networks:
       - devops-network
 
   spark-worker:
-    image: bitnami/spark:3.5
-    # container_name: spark-worker
+    image: spark:3.5.8-nlp
+    container_name: spark-worker
+    depends_on:
+      - spark-master
     restart: "always"
     env_file:
       - .env.worker
+    command: >
+      /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    # deploy:
+    #   replicas: 2
     volumes:
-    #   - ./spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
-    #   - ./data:/bitnami/spark
-      - ./mysql-connector-j-8.0.32.jar:/opt/bitnami/spark/jars/mysql-connector-j-8.0.32.jar
+      - ./conf/:/opt/spark/conf
+      - ./data:/opt/spark/data
+      - ./logs:/opt/spark/logs
+      - ./jars/spark-nlp-assembly-6.4.0.jar:/opt/spark/jars/spark-nlp-assembly-6.4.0.jar
+      - ./nlp/models/:/opt/spark/nlp/models
     ports:
-      - 18081-18082:8081 # web UI for worker
+      - 18081-18082:8081 # SPARK_WORKER_WEBUI_PORT: 8081
+    networks:
+      - devops-network
+
+  spark-history-server:
+    image: spark:3.5.8
+    container_name: spark-history-server
+    restart: "always"
+    env_file:
+      - .env.master
+    command: >
+      /opt/spark/bin/spark-class org.apache.spark.deploy.history.HistoryServer
+    ports:
+      - 28080:18080 # spark.history.ui.port
+    volumes:
+      - ./conf/:/opt/spark/conf
+      - ./logs/spark-events:/opt/spark/logs/spark-events
     networks:
       - devops-network
 

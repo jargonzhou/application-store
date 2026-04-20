@@ -1,6 +1,7 @@
 # Spark
-
 - https://hub.docker.com/r/apache/spark
+
+# Bitnami - DEPRECATED
 - https://hub.docker.com/r/bitnami/spark
 
 kickoff:
@@ -53,4 +54,30 @@ spark-sql (default)>
 # example: in master
 /opt/bitnami/spark$ sbin/start-connect-server.sh --packages org.apache.spark:spark-connect_2.12:3.5.5
 starting org.apache.spark.sql.connect.service.SparkConnectServer, logging to /opt/bitnami/spark/logs/spark--org.apache.spark.sql.connect.service.SparkConnectServer-1-724dbdc1d558.out
+```
+
+# apache/spark-docker
+* https://github.com/apache/spark-docker
+* [Environment Variable](https://github.com/apache/spark-docker/blob/master/OVERVIEW.md#environment-variable)
+  * https://spark.apache.org/docs/latest/configuration.html
+
+## Spark Connect
+```shell
+# in master
+spark@bd01e00323fb:/opt/spark$ sbin/start-connect-server.sh 
+starting org.apache.spark.sql.connect.service.SparkConnectServer, logging to /opt/spark/logs/spark--org.apache.spark.sql.connect.service.SparkConnectServer-1-bd01e00323fb.out
+```
+
+## Spark NLP
+* https://sparknlp.org/docs/en/install#docker-support
+
+```shell
+$ docker build -f Dockerfile -t spark:3.5.8-nlp .
+```
+
+- offline model and pipeline
+```shell
+$ cd nlp/models
+$ unzip explain_document_ml_en_4.4.2_3.2_1685186336939.zip -d explain_document_ml_en_4.4.2_3.2_1685186336939
+$ rm -rf explain_document_ml_en_4.4.2_3.2_1685186336939.zip
 ```
