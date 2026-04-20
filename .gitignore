@@ -3,6 +3,7 @@
 __pycache__
 .ipynb_checkpoints
 node_modules
+TODO.md
 
 ########################################################### 
 # Benchmark
@@ -36,6 +37,9 @@ data-engineering/cassandra/data/*
 data-engineering/clickhouse/data
 data-engineering/clickhouse/logs
 data-engineering/clickhouse/bytebase
+
+# couchdb
+data-engineering/couchdb/data
 
 # elasticsearch
 data-engineering/elastic/docker-entrypoint.sh
@@ -102,7 +106,9 @@ data-engineering/mysql/8/data/*
 
 # neo4j
 data-engineering/neo4j/data
+data-engineering/neo4j/logs
 data-engineering/neo4j/desktop.txt
+data-engineering/neo4j/plugins
 
 # pinot
 data-engineering/pinot/bin
@@ -134,7 +140,9 @@ data-engineering/redis/redis
 data-engineering/samza/samza-hello-samza
 
 # spark
-data-engineering/spark/mysql-connector-j-8.0.32.jar
+data-engineering/spark/data
+data-engineering/spark/jars
+data-engineering/spark/nlp
 
 # sqlite
 data-engineering/sqlite/data/*
@@ -142,6 +150,7 @@ data-engineering/sqlite/data/*
 
 # sqlserver
 data-engineering/sqlserver/data
+data-engineering/sqlserver/data2
 
 # superset
 data-engineering/superset/app/app
@@ -244,7 +253,9 @@ ops/swagger-ui/*.conf
 ops/xxljob/applogs
 ops/xxljob/data
 
-########################################################### Security
+###########################################################
+# Security
+###########################################################
 # keycloak
 security/keycloak/data/mysql/*
 !security/keycloak/data/mysql/.gitkeep
@@ -253,10 +264,16 @@ security/keycloak/codes/
 # openldap
 security/openldap/openldap_data
 
-########################################################### Testing
+###########################################################
+# Testing
+###########################################################
 
 # flask
 
 # mailhog
 
 # testcontainers
+
+###########################################################
+# Langauge Runtime
+###########################################################
