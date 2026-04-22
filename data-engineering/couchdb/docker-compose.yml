@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  couchdb:
+    image: couchdb:3.5.1
+    container_name: couchdb
+    restart: "always"
+    env_file:
+      - .env
+    ports:
+      - 5984:5984
+    volumes:
+    # /opt/couchdb/etc/local.d/
+      - ./data:/opt/couchdb/data
+      - ./log:/opt/couchdb/log
+    networks:
+      - devops-network
+
+networks:
+  devops-network:
+    external: true

@@ -39,7 +39,8 @@ References:
 | [Apache Superset](./data-engineering/superset/superset.md)       | -                                                   |
 | [Apache TinkerPop](./data-engineering/tinkerpop/README.md)       | HTTP, `gremlin-console`, Alchemy.js                 |
 | [Ceph](./data-engineering/ceph/README.md)                        | TODO                                                |
-| [ClickHouse](./data-engineering/clickhouse/README.md)            | `clickhouse-client`, Bytebase, Python               |
+| [ClickHouse](./data-engineering/clickhouse/clickhouse.md)        | `clickhouse-client`, Bytebase, Python               |
+| [CouchDB](./data-engineering/couchdb/couchdb.md)                 | -                                                   |
 | [Elasticsearch](./data-engineering/elastic/elastic.md)           | Elasticsearch, FileBeat, Kibana. Java app Container |
 | [etcd](./data-engineering/etcd/etcd.md)                          | `etcdctl`, Python.                                  |
 | [Hazelcast](./data-engineering/hazelcast/README.md)              | MySQL CDC in Java                                   |
