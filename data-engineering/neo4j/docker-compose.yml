@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   neo4j:
-    image: neo4j:5.20
+    image: neo4j:5
     container_name: neo4j
     restart: "always"
     env_file:
@@ -12,6 +12,11 @@ services:
       - 7687:7687
     volumes:
       - ./data:/data
+      - ./logs:/logs
+      - ./conf:/var/lib/neo4j/conf
+      # NEO4J_PLUGINS
+      - ./plugins:/var/lib/neo4j/plugins
+      - ./import:/var/lib/neo4j/import
     networks:
       - devops-network
 
