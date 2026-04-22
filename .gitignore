@@ -109,6 +109,7 @@ data-engineering/neo4j/data
 data-engineering/neo4j/logs
 data-engineering/neo4j/desktop.txt
 data-engineering/neo4j/plugins
+data-engineering/neo4j/import
 
 # pinot
 data-engineering/pinot/bin
@@ -153,6 +154,8 @@ data-engineering/sqlite/data/*
 # sqlserver
 data-engineering/sqlserver/data
 data-engineering/sqlserver/data2
+data-engineering/sqlserver/TSQLFundamentals20230119
+data-engineering/sqlserver/*.zip
 
 # superset
 data-engineering/superset/app/app
@@ -279,3 +282,11 @@ security/openldap/openldap_data
 ###########################################################
 # Langauge Runtime
 ###########################################################
+
+devcontainers/spark/jars
+devcontainers/spark/data
+devcontainers/spark/nlp
+devcontainers/spark/py
+devcontainers/spark/learning-spark/spark-warehouse
+devcontainers/spark/learning-spark/mlflow.db
+devcontainers/spark/learning-spark/mlruns

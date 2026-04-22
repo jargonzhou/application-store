@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  hop:
+    image: apache/hop:2.17.0
+    container_name: hop
+    restart: "always"
+    env_file:
+      - .env
+    # ports:
+    #   - 7474:7474
+    #   - 7687:7687
+    # volumes:
+    #   - ./data:/data
+    #   - ./logs:/logs
+    #   - ./conf:/var/lib/neo4j/conf
+    #   - ./labs:/var/lib/neo4j/plugins
+    #   - ./import:/var/lib/neo4j/import
+    networks:
+      - devops-network
+
+  hop-web:
+    image: apache/hop-web:2.17.0
+    container_name: hop-web
+    restart: "always"
+    env_file:
+      - .env
+    networks:
+      - devops-network
+
+
+networks:
+  devops-network:
+    external: true

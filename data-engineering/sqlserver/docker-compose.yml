@@ -19,6 +19,23 @@ services:
       - devops-network
     # setup: https://github.com/microsoft/mssql-docker/tree/master/linux/preview/examples/mssql-customize
 
+  sqlserver2:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver2
+    hostname: sqlserver2
+    restart: unless-stopped
+    privileged: true
+    env_file:
+      - .env
+    volumes:
+    - ./data2/data:/var/opt/mssql/data
+    - ./data2/log:/var/opt/mssql/log
+    - ./data2/secrets:/var/opt/mssql/secrets
+    ports:
+      - 1434:1433
+    networks:
+      - devops-network
+
 networks:
   devops-network:
     external: true
